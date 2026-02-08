@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
 url = "https://raw.githubusercontent.com/mwaskom/seaborn-data/master/tips.csv"
 
@@ -20,6 +21,21 @@ X_train, X_test, y_train, y_test = train_test_split(feature, target, test_size=0
 
 print("X_train shape:", X_train.shape)
 print("X_test shape:", X_test.shape)
+
+# visualize the relationship between features and target
+plt.figure(figsize=(12, 5))
+plt.subplot(1, 2, 1)
+plt.scatter(df['total_bill'], df['tip'], alpha=0.5)
+plt.title('Total Bill vs Tip')
+plt.xlabel('Total Bill')
+plt.ylabel('Tip')
+plt.subplot(1, 2, 2)
+plt.scatter(df['size'], df['tip'], alpha=0.5)
+plt.title('Size vs Tip')
+plt.xlabel('Size')
+plt.ylabel('Tip')
+plt.tight_layout()
+plt.show()
 
 
 
